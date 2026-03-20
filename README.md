@@ -2,7 +2,10 @@
 
 A Web3-based job marketplace where employers and job seekers interact directly using blockchain smart contracts, removing intermediaries and ensuring transparency.
 
+![Header UI](1.png)
+
 ---
+
 
 ## Overview
 
@@ -29,57 +32,22 @@ The goal is to eliminate centralized control and create a trustless hiring syste
 ## Tech Stack
 
 * Frontend: React / Next.js
-* Blockchain: Solidity
-* Development: Hardhat
-* Web3 Integration: Ethers.js
-* Wallet: MetaMask
+* Blockchain: Soroban (Stellar Smart Contracts)
+* Language: Rust
+* Web3 Integration: Stellar SDK / Freighter API
+* Wallet: Freighter Wallet
 
 ---
 
 ## Project Structure
 
 ```
-contracts/       # Smart contracts
-scripts/         # Deployment scripts
-test/            # Smart contract tests
-frontend/        # Frontend application
-components/      # UI components
-utils/           # Helper functions
-```
-
----
-
-## Getting Started
-
-### Clone the repository
-
-```bash
-git clone https://github.com/Aryaaa-21/Decentralized-Job-Board.git
-cd Decentralized-Job-Board
-```
-
-### Install dependencies
-
-```bash
-npm install
-```
-
-### Start local blockchain
-
-```bash
-npx hardhat node
-```
-
-### Deploy contracts
-
-```bash
-npx hardhat run scripts/deploy.js --network localhost
-```
-
-### Run frontend
-
-```bash
-npm run dev
+contract/       # Soroban smart contracts (Rust)
+  contracts/    # Contract source code
+client/         # Frontend Next.js application
+  app/          # Next.js App Router pages
+  components/   # UI components
+  hooks/        # Stellar/Soroban hooks
 ```
 
 ---
@@ -89,9 +57,16 @@ npm run dev
 Add your deployed contract details here after deployment:
 
 ```
-Network: (e.g., Sepolia)
-Contract Address: 0x...
+Network: Stellar Testnet
+Contract Address: CBNUTDPVS6NCLWGJWAC7DDIUJ2ETWJFSS27FOEYHXLM7AD2TOVIAHANE
 ```
+
+To use this contract in the frontend, ensure `client/hooks/contract.ts` has:
+```typescript
+export const CONTRACT_ADDRESS = "CBNUTDPVS6NCLWGJWAC7DDIUJ2ETWJFSS27FOEYHXLM7AD2TOVIAHANE";
+```
+
+![Contract Details](2.png)
 
 ---
 
